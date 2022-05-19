@@ -1,0 +1,6 @@
+.idea/
+_site/
+_tmp/
+.DS_Store
+node_modules/
+cache

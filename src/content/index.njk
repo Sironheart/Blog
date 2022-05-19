@@ -1,0 +1,63 @@
+---
+layout: base.njk
+---
+{% from 'macros.njk' import heading %}
+
+<div class="mx-auto mt-16 space-y-16 max-w-lg text-center sm:space-y-20 md:space-y-24">
+    <div>
+        {{ heading('h1', 'Hi!') }}
+        <p class="leading-relaxed lg:text-xl">
+            I'm Steffen and I am a Kotlin developer from Germany. I'm interested in containerization, development and music.
+        </p>
+    </div>
+
+    {% if collections.article | length > 0 %}
+        <div>
+            {{ heading('h2', 'Latest articles') }}
+
+            {% set articleLimit = 5 %}
+            <ul class="space-y-3">
+                {% for article in collections.article | reverse | limit(articleLimit) %}
+                    <li>
+                        <a href="{{ article.url }}">{{ article.data.title }}</a>
+                        <span class="ml-1 text-gray-700 dark:text-gray-300">on {{ article.date | formattedDate }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            {% if collections.article | length  > articleLimit %}
+                <a class="inline-block mt-6" href="/articles">more articles</a>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+    <div>
+        {{ heading('h2', 'Career steps') }}
+
+        <ul class="space-y-10 divide-y divide-gray-300 dark:divide-gray-700 md:space-y-16">
+            {% for item in cv_items %}
+                <li class="pt-10 md:pt-16 first:pt-0">
+                    <p class="text-sm text-gray-600 dark:text-gray-300">{{ item.date }}</p>
+                    <p class="mt-2 mb-1 text-xl font-bold dark:text-white">{{ item.title }}</p>
+                    <p class="mb-3 text-gray-600 dark:text-gray-400">🏢 {{ item.employer }}</p>
+                    {{ item.technology }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        {{ heading('h2', 'Where to find me online') }}
+
+        <ul class="space-y-3">
+            {% for contact_item in contact_items %}
+                <li>
+                    <a href="{{ contact_item.url }}">
+                        {{ contact_item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

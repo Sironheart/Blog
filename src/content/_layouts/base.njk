@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ metaDescription|default('Get to know me.') }}">
+    <title>{{ title|default('Steffen Beisenherz') }}</title>
+
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" media="screen" href="/bundle.css?v={% version %}"/>
+
+        <link rel="preload" href="/fonts/source-sans-pro-v14-latin-regular.woff2" as="font" crossorigin="anonymous"/>
+        <link rel="preload" href="/fonts/source-sans-pro-v14-latin-600.woff2" as="font" crossorigin="anonymous"/>
+        <link rel="preload" href="/fonts/source-sans-pro-v14-latin-700.woff2" as="font" crossorigin="anonymous"/>
+    {% endblock %}
+
+    {% block meta_tags %}
+        <meta property="og:title" content='{{ title|default('Steffen Beisenherz') }}'/>
+        <meta property="og:description" content="{{ metaDescription|default('Get to know me.') }}" />
+        <meta property="og:url" content="https://beisenherz.dev{{ page.url }}"/>
+        <meta property="og:site_name" content="Steffen Beisenherz"/>
+        {% if seo.socialImage %}
+            <meta property="og:image" content="{% ogImage page.url %}" />
+            <meta name="twitter:image" content="{% ogImage page.url %}" />
+        {% endif %}
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:description" content="{{ metaDescription|default('Get to know me') }}" />
+        <meta name="twitter:title" content='{{ title|default('Steffen Beisenherz') }}'/>
+        <meta name="twitter:site" content="@timkley"/>
+    {% endblock %}
+
+    <script src="/bundle.js?v={% version %}" defer></script>
+    <!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">-->
+</head>
+<body class="font-sans bg-gray-50 text-slate-900 dark:bg-gray-800 dark:text-gray-300 selection:bg-blue-200">
+<div class="px-4 pt-6 pb-12">
+    {% block header %}
+        <header class="flex justify-between items-center mx-auto mb-8 max-w-3xl">
+            <div class="font-semibold tracking-tight">
+                <a class="border-transparent hover:border-blue-500" href="/">Steffen Beisenherz</a>
+            </div>
+
+            <div class="space-x-2">
+                <a href="/">Home</a>
+                {% if collections.article | length > 0 %}
+                    <a href="/articles">Articles</a>
+                {% endif %}
+            </div>
+        </header>
+    {% endblock %}
+
+    {% block content %}
+        {{ content | safe }}
+    {% endblock %}
+</div>
+
+{% block footer %}
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="gap-2 text-sm sm:space-y-0 flex flex-col sm:flex-row items-start my-10">
+            <a class="inline-flex items-center text-gray-600 dark:text-gray-300" href="/feed.xml">
+                RSS Feed
+            </a>
+            <span class="hidden sm:block">•</span>
+            <div>
+                Code highlighting provided by <a href="https://torchlight.dev">torchlight.dev</a>
+            </div>
+            <span class="hidden sm:block">•</span>
+            <div>
+                Thanks to <a href="https://www.tim-kleyersburg.de/">Tim Kleyersburg</a> for allowing the use of his homepage styling and setup
+            </div>
+        </div>
+    </div>
+
+    <footer class="fixed bottom-0 w-full h-1 bg-gradient-to-r from-blue-700 to-blue-300"></footer>
+{% endblock %}
+
+</body>
+</html>
