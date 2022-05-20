@@ -7,8 +7,7 @@
     "url": "https://beisenherz.dev/",
     "feedUrl": "https://beisenherz.dev/feed.xml",
     "author": {
-      "name": "Steffen Beisenherz",
-      "email": "timkley@gmail.com"
+      "name": "Steffen Beisenherz"
     }
   }
 }
@@ -22,7 +21,6 @@
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
-    <email>{{ metadata.author.email }}</email>
   </author>
   {%- for post in collections.article %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}

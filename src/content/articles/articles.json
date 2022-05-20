@@ -1,0 +1,11 @@
+{
+  "layout": "article",
+  "tags": "article",
+  "author": {
+    "name": "Steffen Beisenherz",
+    "avatarUrl": "/img/avatar_small.jpeg"
+  },
+  "seo": {
+    "socialImage": true
+  }
+}
