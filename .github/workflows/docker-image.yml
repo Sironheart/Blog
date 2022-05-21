@@ -32,5 +32,5 @@ jobs:
         context: .
         push: true
         tags: ${{ steps.meta.outputs.tags }}
-      env:
-        TORCHLIGHT_TOKEN: ${{ secrets.TORCHLIGHT_TOKEN }}
+        build-args: |
+          TORCHLIGHT_TOKEN=${{ secrets.TORCHLIGHT_TOKEN }}
