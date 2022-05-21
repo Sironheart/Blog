@@ -20,13 +20,13 @@
         <meta property="og:url" content="https://beisenherz.dev{{ page.url }}"/>
         <meta property="og:site_name" content="Steffen Beisenherz"/>
         {% if seo.socialImage %}
-            <meta property="og:image" content="/opengraph/{{ page.url }}" />
-            <meta name="twitter:image" content="/opengraph/{{ page.url }}" />
+            <meta property="og:image" content="/opengraph{{ page.filePathStem }}.webp" />
+            <meta name="twitter:image" content="/opengraph{{ page.filePathStem }}.webp" />
         {% endif %}
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:description" content="{{ metaDescription|default('Get to know me') }}" />
         <meta name="twitter:title" content='{{ title|default('Steffen Beisenherz') }}'/>
-        <meta name="twitter:site" content="@timkley"/>
+        <meta name="twitter:site" content="@S_ironheart"/>
     {% endblock %}
 
     <script src="/bundle.js?v={% version %}" defer></script>

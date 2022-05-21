@@ -1,6 +1,5 @@
 FROM node:alpine3.14 AS builder
 ARG TORCHLIGHT_TOKEN
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV TORCHLIGHT_TOKEN=$TORCHLIGHT_TOKEN
 RUN apk update && apk add --no-cache nmap && \
         echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
@@ -11,11 +10,13 @@ RUN apk update && apk add --no-cache nmap && \
           harfbuzz \
           "freetype>2.8" \
           ttf-freefont \
-          nss
+          nss \
+          nginx
 ADD . /eleventy
 WORKDIR /eleventy
-RUN npm i && npm run build
-RUN node ./compile-images.js
+ADD ./build_files/default.conf /etc/nginx/http.d/default.conf
+RUN npm ci && npm run build
+RUN rm -rf /usr/share/nginx/html && ln -s /eleventy/_site /usr/share/nginx/html && nginx -g "daemon on;" && node ./compile-images.js
 
 FROM nginx:1.21.6-alpine
 COPY --from=builder /eleventy/_site /usr/share/nginx/html
