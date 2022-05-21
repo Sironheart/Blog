@@ -49,13 +49,6 @@ module.exports = (eleventyConfig) => {
 
     eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
-    eleventyConfig.addShortcode('ogImage', function (url) {
-        const imageService = process.env.ELEVENTY_ENV === 'production' ? 'https://beisenherz.dev/screenshot' : 'http://localhost:9999/.netlify/functions/screenshot';
-        const openGraphImageUrl = process.env.ELEVENTY_ENV === 'production' ? `https://beisenherz.dev/opengraph/${url}` : `http://localhost:8080/opengraph/${url}`
-
-        return `${imageService}/${encodeURIComponent(openGraphImageUrl)}`
-    });
-
     eleventyConfig.addFilter('limit', (array, limit) => {
         return array.slice(0, limit)
     })
