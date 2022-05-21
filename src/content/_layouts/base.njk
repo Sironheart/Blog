@@ -20,8 +20,8 @@
         <meta property="og:url" content="https://beisenherz.dev{{ page.url }}"/>
         <meta property="og:site_name" content="Steffen Beisenherz"/>
         {% if seo.socialImage %}
-            <meta property="og:image" content="https://beisenherz.dev/opengraph{{ page.filePathStem }}.webp" />
-            <meta name="twitter:image" content="https://beisenherz.dev/opengraph{{ page.filePathStem }}.webp" />
+            <meta property="og:image" content="https://beisenherz.dev{{ page.url.slice(0,-1) }}.webp" />
+            <meta name="twitter:image" content="https://beisenherz.dev{{ page.url.slice(0,-1) }}.webp" />
         {% endif %}
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:description" content="{{ metaDescription|default('Get to know me') }}" />
