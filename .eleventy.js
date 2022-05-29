@@ -2,7 +2,7 @@ const path = require('path')
 const util = require('util')
 const Image = require('@11ty/eleventy-img')
 
-async function imageShortcode(src, alt, size = '(min-width: 600px) 600w, 375w') {
+async function imageShortcode(src, alt, sizes = '(min-width: 600px) 600w, 375w') {
     src = this.page?.inputPath ? `${path.dirname(this.page.inputPath)}/${src}` : src
 
     let metadata = await Image(src, {
