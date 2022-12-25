@@ -18,5 +18,5 @@ ADD ./build_files/default.conf /etc/nginx/http.d/default.conf
 RUN npm ci && npm run build
 RUN rm -rf /usr/share/nginx/html && ln -s /eleventy/_site /usr/share/nginx/html && nginx -g "daemon on;" && node ./compile-images.js
 
-FROM nginx:1.21.6-alpine
+FROM nginx:1.23.3-alpine
 COPY --from=builder /eleventy/_site /usr/share/nginx/html
