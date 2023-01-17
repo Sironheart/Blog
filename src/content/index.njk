@@ -41,6 +41,7 @@ layout: base.njk
                     <p class="text-sm text-gray-600 dark:text-gray-300">{{ item.date }}</p>
                     <p class="mt-2 mb-1 text-xl font-bold dark:text-white">{{ item.title }}</p>
                     <p class="mb-3 text-gray-600 dark:text-gray-400">🏢 {{ item.employee }}</p>
+                    <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">Salary: {{ item.salary }} €/year</p>
                     {{ item.technology }}
                 </li>
             {% endfor %}

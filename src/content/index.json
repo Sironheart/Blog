@@ -4,37 +4,43 @@
       "title": "Backend Developer",
       "date": "03.2022 - today",
       "employee": "RTL Technology GmbH",
-      "technology": "Kotlin, Terraform, Kubernetes"
+      "technology": "Kotlin, Terraform, Kubernetes",
+      "salary": 53500
     },
     {
       "title": "Shopware Developer",
       "date": "10.2020 - 02.2022",
       "employee": "Kellerkinder GmbH",
-      "technology": "Shopware - PHP"
+      "technology": "Shopware - PHP",
+      "salary": 36000
     },
     {
       "title": "Fullstack Developer",
       "date": "08.2019 - 09.2020",
       "employee": "Shopmacher eCommerce GmbH",
-      "technology": "Shopware - Oxid - Symfony - Vue.js - PHP - Javascript - CSS"
+      "technology": "Shopware - Oxid - Symfony - Vue.js - PHP - Javascript - CSS",
+      "salary": 27000
     },
     {
       "title": "Core Developer",
       "date": "02.2019 - 07.2019",
       "employee": "shopware AG",
-      "technology": "Shopware - Symfony - PHP - Javascript"
+      "technology": "Shopware - Symfony - PHP - Javascript",
+      "salary": 36000
     },
     {
       "title": "Junior Symfony Developer",
       "date": "10.2018 - 11.2018",
       "employee": "guthand GmbH",
-      "technology": "Symfony - PHP - Javascript"
+      "technology": "Symfony - PHP - Javascript",
+      "salary": 30000
     },
     {
       "title": "Junior Developer",
       "date": "03.2017 - 09.2018",
       "employee": "Mauve Mailorder Software GmbH",
-      "technology": "PHP - Javascript"
+      "technology": "PHP - Javascript",
+      "salary": 22800
     }
   ],
   "contact_items": [
