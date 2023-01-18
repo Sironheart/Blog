@@ -37,12 +37,27 @@ layout: base.njk
 
         <ul class="space-y-10 divide-y divide-gray-300 dark:divide-gray-700 md:space-y-16">
             {% for item in cv_items %}
-                <li class="pt-10 md:pt-16 first:pt-0">
+                <li class="employer-box">
                     <p class="text-sm text-gray-600 dark:text-gray-300">{{ item.date }}</p>
                     <p class="mt-2 mb-1 text-xl font-bold dark:text-white">{{ item.title }}</p>
                     <p class="mb-3 text-gray-600 dark:text-gray-400">🏢 {{ item.employee }}</p>
-                    <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">Salary: {{ item.salary }} €/year</p>
-                    {{ item.technology }}
+                    <div class="salary-box">
+                        <span class="font-bold text-lg p-0 m-0">Salary:</span>
+                        <div class="salary-table">
+                            {% for salary in item.salary %}
+                                <div class="salary-row">
+                                    <div class="salary-column">{{ salary.timeframe }}</div>
+                                    <div class="salary-column">{{ salary.amount }} €/year</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="skills">
+                        <div class="font-bold text-lg">
+                            Skills:
+                        </div>
+                        {{ item.technology }}
+                    </div>
                 </li>
             {% endfor %}
         </ul>

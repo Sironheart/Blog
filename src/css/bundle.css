@@ -36,3 +36,39 @@
 a {
     @apply transition dark:text-white hover:text-gray-700 dark:hover:text-gray-400 border-b border-blue-400 hover:border-blue-600
 }
+
+.employer-box {
+    @apply pt-10 md:pt-16 first:pt-0 flow-root;
+}
+
+.employer-box .salary-box {
+    @apply h-0 w-full text-gray-600 dark:text-gray-400 opacity-0 transition-opacity ease-in-out duration-500;
+}
+
+.employer-box:hover .salary-box {
+    @apply flex flex-col h-auto text-sm text-gray-600 dark:text-gray-400 opacity-100 transition-opacity ease-in-out duration-500 justify-center text-center;
+}
+
+.salary-table {
+    @apply block w-full text-lg
+}
+
+.employer-box .salary-box .salary-table {
+    @apply opacity-0 w-fit;
+}
+.employer-box .salary-box .salary-row {
+    @apply opacity-0 w-fit;
+}
+.employer-box .salary-box .salary-column {
+    @apply opacity-0 w-fit;
+}
+
+.employer-box:hover .salary-table {
+    @apply flex flex-col align-middle justify-center h-fit opacity-100 transition-opacity py-1 self-center;
+}
+.employer-box:hover .salary-row {
+    @apply transition-opacity opacity-100 flex flex-row align-middle justify-center self-center;
+}
+.employer-box:hover .salary-column {
+    @apply text-base transition-opacity opacity-100 m-2 self-center;
+}

@@ -5,6 +5,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            transitionProperty: {
+                'spacing': "margin, padding"
+            },
             fontFamily: {
                 sans: ['Source Sans Pro', 'sans-serif'],
             },
