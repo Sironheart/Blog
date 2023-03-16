@@ -20,15 +20,24 @@ fs.readdir(dir, { withFileTypes: true }, function (err, files) {
                 "--no-sandbox",
             ]
         }).then((browser) => {
-            browser.newPage().then((page) => {
+            browser.newPage().then(page => {
                 page.goto(`http://127.0.0.1/opengraph/articles/${renderPath}`, {
                     timeout: 8500
                 }).then(() => {
+                    console.log(`${dir}/${file}`)
                     page.screenshot({type: "webp", path: `${dir}/${file}.webp`}).then(() => {
                         browser.close();
                     })
+                }).catch(error => {
+                    console.error(`${dir}/${file}.webp`)
+                    console.error(error)
                 })
+            }).catch(error => {
+                console.error(error)
             })
+        }).catch(error => {
+            console.error("problem with browser")
+            console.error(error)
         });
     })
 });

@@ -1,22 +1,14 @@
-FROM node:alpine3.14 AS builder
+FROM node:current-slim AS builder
 ARG TORCHLIGHT_TOKEN
 ENV TORCHLIGHT_TOKEN=$TORCHLIGHT_TOKEN
-RUN apk update && apk add --no-cache nmap && \
-        echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
-        echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
-        apk update && \
-        apk add --no-cache \
+RUN apt-get update && \
+        apt-get install -y \
           chromium \
-          harfbuzz \
-          "freetype>2.8" \
-          ttf-freefont \
-          nss \
           nginx
 ADD . /eleventy
 WORKDIR /eleventy
-ADD ./build_files/default.conf /etc/nginx/http.d/default.conf
 RUN npm ci && npm run build
-RUN rm -rf /usr/share/nginx/html && ln -s /eleventy/_site /usr/share/nginx/html && nginx -g "daemon on;" && node ./compile-images.js
+RUN rm -rf /var/www/html && ln -s /eleventy/_site /var/www/html && nginx -g "daemon on;" && node ./compile-images.js && kill -QUIT $( cat /run/nginx.pid )
 
 FROM nginx:1.23.3-alpine
 COPY --from=builder /eleventy/_site /usr/share/nginx/html
