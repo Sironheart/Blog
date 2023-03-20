@@ -11,7 +11,7 @@
     "build": "ELEVENTY_ENV=production NODE_ENV=production concurrently npm:build:*"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@tailwindcss/line-clamp": "^0.4.0",
