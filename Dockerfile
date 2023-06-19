@@ -1,4 +1,4 @@
-FROM node:alpine3.14 AS builder
+FROM node:16.20.0-alpine3.18 AS builder
 ARG TORCHLIGHT_TOKEN
 ENV TORCHLIGHT_TOKEN=$TORCHLIGHT_TOKEN
 RUN apk update && apk add --no-cache nmap && \
@@ -18,5 +18,5 @@ ADD ./build_files/default.conf /etc/nginx/http.d/default.conf
 RUN npm ci && npm run build
 RUN rm -rf /usr/share/nginx/html && ln -s /eleventy/_site /usr/share/nginx/html && nginx -g "daemon on;" && node ./compile-images.js
 
-FROM nginx:1.23.3-alpine
+FROM nginx:stable-alpine3.17-slim
 COPY --from=builder /eleventy/_site /usr/share/nginx/html
