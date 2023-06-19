@@ -11,6 +11,9 @@
     <div class="mx-auto mb-24 prose dark:prose-invert lg:prose-lg md:mt-8 lg:mt-16">
         <h1>{{ title }}</h1>
         <div class="items-center sm:flex sm:space-x-3">
+            <img src="{{ hero }}" alt="{{ metaDescription }}" class="w-full">
+        </div>
+        <div class="items-center sm:flex sm:space-x-3">
             <div class="flex items-center space-x-2 not-prose">
                 <div class="overflow-hidden flex-shrink-0 w-6 h-6 rounded-full">
                     <img class="my-0" src="{{ author.avatarUrl }}" alt="{{ author.name }}"/>
