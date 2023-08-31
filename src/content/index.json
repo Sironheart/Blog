@@ -7,7 +7,11 @@
       "technology": "Kotlin, Terraform, Kubernetes",
       "salary": [
         {
-          "timeframe": "07.23 - currently",
+          "timeframe": "08.23 - currently",
+          "amount": 60000
+        },
+        {
+          "timeframe": "07.23 - 07.23",
           "amount": 56100
         },
         {

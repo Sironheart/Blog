@@ -41,6 +41,12 @@ layout: base.njk
                     <p class="text-sm text-gray-600 dark:text-gray-300">{{ item.date }}</p>
                     <p class="mt-2 mb-1 text-xl font-bold dark:text-white">{{ item.title }}</p>
                     <p class="mb-3 text-gray-600 dark:text-gray-400">🏢 {{ item.employee }}</p>
+                    <div class="skills">
+                        <div class="font-bold text-lg">
+                            Skills:
+                        </div>
+                        {{ item.technology }}
+                    </div>
                     <div class="salary-box">
                         <span class="font-bold text-lg p-0 m-0">Salary:</span>
                         <div class="salary-table">
@@ -51,12 +57,6 @@ layout: base.njk
                                 </div>
                             {% endfor %}
                         </div>
-                    </div>
-                    <div class="skills">
-                        <div class="font-bold text-lg">
-                            Skills:
-                        </div>
-                        {{ item.technology }}
                     </div>
                 </li>
             {% endfor %}
